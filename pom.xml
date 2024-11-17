@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pe.wcsp</groupId>
-	<artifactId>ms-currencyEntity-unit-tests</artifactId>
+	<artifactId>ms-currency-unit-tests</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-currencyEntity-unit-tests</name>
+	<name>ms-currency-unit-tests</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
