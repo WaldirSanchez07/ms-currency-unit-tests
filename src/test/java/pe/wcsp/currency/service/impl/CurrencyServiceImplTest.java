@@ -2,9 +2,12 @@ package pe.wcsp.currency.service.impl;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -120,11 +123,22 @@ class CurrencyServiceImplTest {
         Assertions.assertEquals(ErrorConstant.CURRENCY_CODE_NOT_EXISTS_TO_DELETE, exception.getErrorMessage());
     }
 
-//    @Test
-//    void deleteByCurrencyCode_ThrowExceptionFindAllFailed() {
-//        Mockito.doThrow(BusinessException.class).when(currencyRepository).findAll();
-//
-//        Assertions.assertThrows(BusinessException.class,
-//                () -> currencyService.deleteByCurrencyCode("CNY"));
-//    }
+    @Test
+    @Disabled
+    void deleteByCurrencyCode_ThrowExceptionFindAllFailed() {
+        Mockito.doThrow(BusinessException.class).when(currencyRepository).findAll();
+
+        Assertions.assertThrows(BusinessException.class,
+                () -> currencyService.deleteByCurrencyCode("CNY"));
+    }
+
+    static List<String> stringProvider() {
+        return List.of("PEN", "USD", "EUR");
+    }
+
+    @ParameterizedTest
+    @MethodSource("stringProvider")
+    void validateCurrencyCodeLength(String currency) {
+        Assertions.assertEquals(3, currency.length());
+    }
 }
