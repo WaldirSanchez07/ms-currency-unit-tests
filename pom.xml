@@ -129,7 +129,6 @@
 						<exclude>**/dto/**</exclude>
 						<exclude>**/mapper/**</exclude>
 						<exclude>**/model/**</exclude>
-						<exclude>**/rest/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>

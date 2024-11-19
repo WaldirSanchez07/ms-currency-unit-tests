@@ -23,7 +23,7 @@ public class CurrencyRestService {
     }
 
     @GetMapping("/find-all-currency-code")
-    public ResponseEntity<ObjectResponse> findCurrency() {
+    public ResponseEntity<ObjectResponse> findAllCurrencyCode() {
         return ResponseEntity.ok(ObjectResponse.builder()
                 .statusCode(HttpStatus.OK.value())
                 .data(currencyService.findAllCurrencyCode())
